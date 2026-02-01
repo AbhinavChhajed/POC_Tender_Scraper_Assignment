@@ -1,0 +1,47 @@
+[
+  {
+    "run_id": "9c44b1f7-6a13-4cb3-a233-c6c721eb945e",
+    "start_time": 1769959315.3965094,
+    "config": {
+      "limit": 5,
+      "rate_limit": 2.0
+    },
+    "pages_visited": 1,
+    "tenders_found": 50,
+    "tenders_saved": 5,
+    "deduped_count": 0,
+    "status": "SUCCESS",
+    "end_time": 1769959336.2139153,
+    "duration_seconds": 20.817405939102173
+  },
+  {
+    "run_id": "265f28e0-1f2c-4e89-97f4-d305264ee479",
+    "start_time": 1769965159.75071,
+    "config": {
+      "limit": 50,
+      "rate_limit": 2.0
+    },
+    "pages_visited": 1,
+    "tenders_found": 50,
+    "tenders_saved": 50,
+    "deduped_count": 0,
+    "status": "SUCCESS",
+    "end_time": 1769965174.7890835,
+    "duration_seconds": 15.038373470306396
+  },
+  {
+    "run_id": "c803725f-617a-43d1-81fd-fb8310c5fec5",
+    "start_time": 1769965402.2879694,
+    "config": {
+      "limit": 10,
+      "rate_limit": 3.0
+    },
+    "pages_visited": 1,
+    "tenders_found": 50,
+    "tenders_saved": 10,
+    "deduped_count": 0,
+    "status": "SUCCESS",
+    "end_time": 1769965414.9420044,
+    "duration_seconds": 12.654035091400146
+  }
+]

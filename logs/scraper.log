@@ -1,0 +1,33 @@
+2026-02-01 20:51:55,396 - INFO - Starting Run ID: 9c44b1f7-6a13-4cb3-a233-c6c721eb945e
+2026-02-01 20:51:55,396 - INFO - Fetching main listing page...
+2026-02-01 20:51:55,396 - INFO - Fetching URL: https://tender.nprocure.com/
+2026-02-01 20:52:14,991 - INFO - Data table rows detected.
+2026-02-01 20:52:16,121 - INFO - Parsing HTML...
+2026-02-01 20:52:16,207 - INFO - Found 50 raw items.
+2026-02-01 20:52:16,208 - INFO - Cleaning and deduplicating data...
+2026-02-01 20:52:16,213 - INFO - Successfully saved 5 tenders to data\sample-output.json
+2026-02-01 20:52:16,213 - INFO - Successfully saved 5 tenders.
+2026-02-01 20:52:16,213 - INFO - Run metadata saved to data\metadata.json
+2026-02-01 20:52:16,213 - INFO - Run 9c44b1f7-6a13-4cb3-a233-c6c721eb945e completed in 20.82s
+2026-02-01 22:29:19,750 - INFO - Starting Run ID: 265f28e0-1f2c-4e89-97f4-d305264ee479
+2026-02-01 22:29:19,750 - INFO - Fetching main listing page...
+2026-02-01 22:29:19,750 - INFO - Fetching URL: https://tender.nprocure.com/
+2026-02-01 22:29:33,625 - INFO - Data table rows detected.
+2026-02-01 22:29:34,692 - INFO - Parsing HTML...
+2026-02-01 22:29:34,780 - INFO - Found 50 raw items.
+2026-02-01 22:29:34,780 - INFO - Cleaning and deduplicating data...
+2026-02-01 22:29:34,789 - INFO - Successfully saved 50 tenders to data\sample-output.json
+2026-02-01 22:29:34,789 - INFO - Successfully saved 50 tenders.
+2026-02-01 22:29:34,790 - INFO - Run metadata saved to data\metadata.json
+2026-02-01 22:29:34,790 - INFO - Run 265f28e0-1f2c-4e89-97f4-d305264ee479 completed in 15.04s
+2026-02-01 22:33:22,287 - INFO - Starting Run ID: c803725f-617a-43d1-81fd-fb8310c5fec5
+2026-02-01 22:33:22,287 - INFO - Fetching main listing page...
+2026-02-01 22:33:22,287 - INFO - Fetching URL: https://tender.nprocure.com/
+2026-02-01 22:33:33,734 - INFO - Data table rows detected.
+2026-02-01 22:33:34,852 - INFO - Parsing HTML...
+2026-02-01 22:33:34,936 - INFO - Found 50 raw items.
+2026-02-01 22:33:34,936 - INFO - Cleaning and deduplicating data...
+2026-02-01 22:33:34,940 - INFO - Successfully saved 10 tenders to data\sample-output.json
+2026-02-01 22:33:34,940 - INFO - Successfully saved 10 tenders.
+2026-02-01 22:33:34,942 - INFO - Run metadata saved to data\metadata.json
+2026-02-01 22:33:34,943 - INFO - Run c803725f-617a-43d1-81fd-fb8310c5fec5 completed in 12.65s
