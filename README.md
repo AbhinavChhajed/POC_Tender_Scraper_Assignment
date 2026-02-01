@@ -15,6 +15,7 @@ A production-minded Proof of Concept (POC) for scraping tender data from (https:
 1. Clone the repository:
 
    git clone https://github.com/AbhinavChhajed/POC_Tender_Scraper_Assignment
+   
    cd POC_Tender_Scraper_Assignment
 
 2. Install dependencies:

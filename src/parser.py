@@ -13,10 +13,8 @@ class TenderParser:
         soup = BeautifulSoup(html_content, 'lxml')
         tenders = []
         
-        # 1. Target the specific table by ID
         table = soup.find('table', id='DataTables_Table_0')
         if not table:
-            # Fallback: Try finding any table with 'Tender Id' in it
             logger.warning("Table #DataTables_Table_0 not found by ID. Trying fallback search.")
             for t in soup.find_all('table'):
                 if "Tender Id" in t.get_text():
@@ -27,7 +25,6 @@ class TenderParser:
             logger.error("No valid tender table found in HTML.")
             return []
             
-        # 2. Iterate over rows (skip header)
         tbody = table.find('tbody')
         if not tbody:
             return []
@@ -40,20 +37,16 @@ class TenderParser:
                 if len(cols) < 2:
                     continue
                 
-                # --- Column 0: Notice Number ---
                 notice_no = cols[0].get_text(strip=True)
                 
-                # --- Column 1: The "Packed" Details ---
                 details_col = cols[1]
                 
-                # A. Extract Organization
                 org_text = "Unknown"
                 org_span = details_col.find('span', style=lambda s: s and 'color:#f44336' in s)
                 if org_span:
                     raw_org = org_span.get_text(strip=True)
                     org_text = raw_org.split('Tender Id')[0].strip()
 
-                # B. Extract System Tender ID
                 tender_id = notice_no 
                 id_link = details_col.find('a', id='tenderInProgress')
                 if id_link:
@@ -61,14 +54,12 @@ class TenderParser:
                     if "Tender Id :" in id_text:
                         tender_id = id_text.split(":")[-1].strip()
 
-                # C. Extract Title
                 title = "N/A"
                 title_marker = details_col.find('strong', string=re.compile("Name Of Work"))
                 if title_marker and title_marker.parent:
                     full_title_text = title_marker.parent.get_text(strip=True)
                     title = full_title_text.replace("Name Of Work :", "").strip()
 
-                # D. Extract Closing Date
                 closing_date = None
                 date_p = details_col.find('p', string=re.compile("Last Date"))
                 if date_p:
@@ -77,7 +68,6 @@ class TenderParser:
                     if match:
                         closing_date = match.group(1)
 
-                # E. Extract Estimated Value
                 value = "N/A"
                 val_p = details_col.find('p', style=lambda s: s and 'color:#FF9933' in s)
                 if val_p:

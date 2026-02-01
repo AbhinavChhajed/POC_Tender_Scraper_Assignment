@@ -8,7 +8,6 @@ logger = logging.getLogger(__name__)
 
 class StorageManager:
     def __init__(self):
-        # Ensure data directory exists
         os.makedirs(Config.DATA_DIR, exist_ok=True)
 
     def save_tenders(self, tenders):
@@ -27,21 +26,18 @@ class StorageManager:
         Appends the run metadata to a JSON file (creating a history log).
         """
         try:
-            # Read existing metadata if file exists
             history = []
             if os.path.exists(Config.METADATA_FILE):
                 try:
                     with open(Config.METADATA_FILE, 'r', encoding='utf-8') as f:
                         history = json.load(f)
                         if not isinstance(history, list):
-                            history = [] # Reset if corrupt
+                            history = [] 
                 except json.JSONDecodeError:
-                    history = [] # Reset if corrupt
+                    history = [] 
 
-            # Append new run
             history.append(metadata)
 
-            # Write back
             with open(Config.METADATA_FILE, 'w', encoding='utf-8') as f:
                 json.dump(history, f, indent=2)
             

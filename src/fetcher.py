@@ -19,7 +19,6 @@ class TenderFetcher:
         logger.info(f"Fetching URL: {url}")
         
         with sync_playwright() as p:
-            # Launch browser
             browser = p.chromium.launch(headless=self.headless)
             context = browser.new_context(
                 user_agent="Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/91.0.4472.124 Safari/537.36"
@@ -29,14 +28,11 @@ class TenderFetcher:
             attempt = 0
             while attempt < Config.MAX_RETRIES:
                 try:
-                    # Respect Rate Limit
+                   
                     time.sleep(self.rate_limit)
                     
-                    # Navigate
                     page.goto(url, timeout=Config.TIMEOUT, wait_until="domcontentloaded")
                     
-                    # --- CRITICAL FIX: Wait for DATA rows, not just the table ---
-                    # We wait for the class 'sorting_1' which appears in the first column of populated rows
                     try:
                         page.wait_for_selector("td.sorting_1", timeout=15000)
                         logger.info("Data table rows detected.")
@@ -50,7 +46,7 @@ class TenderFetcher:
                 except Exception as e:
                     attempt += 1
                     logger.warning(f"Attempt {attempt} failed for {url}: {e}")
-                    time.sleep(2 ** attempt) # Exponential backoff
+                    time.sleep(2 ** attempt) 
             
             browser.close()
             logger.error(f"Failed to fetch {url} after {Config.MAX_RETRIES} attempts")

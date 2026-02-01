@@ -18,13 +18,12 @@ class TenderCleaner:
             return None
         
         try:
-            # Try parsing with time first
             dt = datetime.strptime(date_str, "%d-%m-%Y")
             return dt.strftime("%Y-%m-%d")
         except ValueError:
             pass
             
-        return date_str # Return original if parse fails
+        return date_str
 
     def normalize_type(self, title):
         """
@@ -37,17 +36,16 @@ class TenderCleaner:
             return "Goods"
         elif any(x in title_lower for x in ['service', 'consultancy', 'manpower', 'hiring']):
             return "Services"
-        return "Works" # Default to Works for nprocure as it's mostly infra
-
+        return "Works" 
     def clean_record(self, raw_record):
         cleaned = {
             "tender_id": raw_record.get("tender_id", "N/A"),
             "title": raw_record.get("title", "").strip(),
             "tender_type": self.normalize_type(raw_record.get("title", "")),
-            "publish_date": datetime.today().strftime('%Y-%m-%d'), # Site doesn't show publish date on listing
+            "publish_date": datetime.today().strftime('%Y-%m-%d'), 
             "closing_date": self.normalize_date(raw_record.get("closing_date", "")),
             "organization": raw_record.get("organization", "").strip(),
-            "description": raw_record.get("title", "").strip(), # Use title as desc
+            "description": raw_record.get("title", "").strip(), 
             "source_url": raw_record.get("source_url", ""),
             "contract_value": raw_record.get("tender_value", "0")
         }

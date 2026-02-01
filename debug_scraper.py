@@ -6,9 +6,8 @@ def run():
         page = browser.new_page()
         print("Navigating to nprocure...")
         page.goto("https://tender.nprocure.com/")
-        page.wait_for_timeout(5000) # Wait 5s for everything to load
+        page.wait_for_timeout(5000)
         
-        # Save the HTML to a file
         content = page.content()
         with open("debug_page.html", "w", encoding="utf-8") as f:
             f.write(content)
